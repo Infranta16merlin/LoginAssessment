@@ -11,7 +11,7 @@ const GithubProvider = ({children}) =>{
 
 
   
-    const [githubUser,setGithubUser] = useState(mockUser);
+    // const [githubUser,setGithubUser] = useState(mockUser);
     const [repos,setRepos] = useState(mockRepos);
     const [request,setRequest] = useState(0);
     const [loading,setLoading] = useState(false);
@@ -36,7 +36,7 @@ const GithubProvider = ({children}) =>{
         setLoading(true);
         const response = await axios(`${rootUrl}/users/${user}`).catch((error)=>console.log(error));
        if(response){
-
+                 const {login} = response.data;
             //repos
             await axios(`${rootUrl}/users/${login}/repos?per_page=100`)
             .then((response)=>setRepos(response.data))
