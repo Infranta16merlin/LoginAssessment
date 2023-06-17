@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# React 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Login Page and Github Repos
+   
+   --- Created Login Page with useAuth Authentication
+   --- Used Routing for navigation purposes
+   --- Used custom hooks for handling data
+   --- Used github api for connection with database
+   --- Fetched data from the user and display the User data and Followers datafrom the api
+   --- Created Toggle button to change from light mode to dark mode and vice versa
 
-## Available Scripts
 
-In the project directory, you can run:
+### App.js and index.js 
+  
+   --- Created index.js where the root starts and for useAUth0 we need to pass domainId and clientId for user Authorization
+   --- In App.js added Rouers for Navigation of components
 
-### `npm start`
+### Routers and Private Route
+  
+  --- Added Routers in App.js and used for Navigation Purposes.
+  --- Added Browser Router, Routes and Route for navigation purpose from react-router-dom@6
+  --- Installed router from npm i react-router-dom
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Componets and Pages
+   
+   --- Created different component and pages to make the component to work easily
+   --- The componets are
+            Login
+            Dashboard
+            AuthWrapper 
+            Error
+    --- The Pages are
+            NavBar
+             User
+             Repos
+             Followers
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Private Router
+    
+    --- Private routers are used to protect the component
+    --- Used here to protect the routing page to return to login if there is any unauthorized user
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### AuthWrapper
+ 
+    --- AuthWrapper are used to create login and logout pages
+    --- Used here for authentication and here I used with Google login and sign in and login option
+    --- If there is authorized user and which returns true then it goes to Dahboard Page
+    --- Added @auth0/auth0-react and created domain Id and clientId and passed down from index to AuthWrapper class
+    --- Based on the authentication the routers works
+    --- If the authwrapper return true it goes to Dashboard Page or else it again return to Login Page
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Dasboard
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    --- Dashboard component contains of NavBar, User, Repos and Followers component
+    --- This component takes the data from context.js where it fetchs the data from api and mockuser data
+    --- If the login page is correct then this page gets loaded
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### NavBar
+ 
+    --- NavBar component contains of the user name, user image and logout option
+    --- This page loads according to the auth component
+    --- Log out page get loaded from the auth component
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User
+   
+   --- User component provides the information from the mockUser data
+   --- This componet shows the number of user and user details
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Followers
+  
+   --- Follower component shows the follwers following the account
+   --- This data is taken from dummy user from githb
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Repos
+   
+   --- This shows the number of repos, followers, users, gists 
+   --- This provides extra data about the user
 
-## Learn More
+### Error
+   --- This compont is loaded when the url goes wrong
+   --- This provides 404 error where this shows the error page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### context.js
+   
+   --- This page shows the useContext hook
+   --- This takes the data from the user in a single data and fetches the data
+   --- Here I have used custom hooks for fetching the data
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Toggle between light and dark theme
+  
+  --- Here I have added the toggle option in App.js where iit is a stating page of App
+  --- I have aded dark theme and light theme based on className
+  --- Here I have added the localstorage to fetch the initial thme as light theme
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### For Styling
 
-### Making a Progressive Web App
+   --- Here I have added styling based on the Wrapper class by using Styled Component class
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---------------------------------------------------------------------------------------------------------------
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Here I have attached the UI Screens in UI folder
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

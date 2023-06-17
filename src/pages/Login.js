@@ -9,11 +9,12 @@ const Login = () => {
   const {loginWithRedirect} = useAuth0();
 
   return (
-    
-      <Wrapper className='container'>
+    <Wrapper>
+      <div  className='container'>
         <img src={loginImg} alt='login' />
         <h1>GitHub Users</h1>
         <button className='btn'  onClick={loginWithRedirect}>LOGIN / SIGN UP</button>
+        </div>
       </Wrapper>
    
   )
