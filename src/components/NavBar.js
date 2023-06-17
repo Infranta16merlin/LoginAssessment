@@ -34,7 +34,9 @@ const Wrapper = styled.nav`
   grid-template-columns: auto auto 100px;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  margin-top: -6rem;
+  position: relative;
+  gap: 2.5rem;
   h4 {
     margin-bottom: 0;
     font-weight: 400;
