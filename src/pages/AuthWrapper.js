@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
+import styled from 'styled-components';
 
 function AuthWrapper({children}) {
 
@@ -16,20 +17,17 @@ function AuthWrapper({children}) {
     return <h2>{error.message}</h2>
   }
  
-
-
-console.log(1);
  
-  return <>{children}</>
+  return <Wrapper>{children}</Wrapper>
 }
 
-// const Wrapper = styled.section`
-//   min-height: 100vh;
-//   display: grid;
-//   place-items: center;
-//   img {
-//     width: 150px;
-//   }
-// `;
+const Wrapper = styled.section`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  img {
+    width: 150px;
+  }
+`;
 
 export default AuthWrapper;

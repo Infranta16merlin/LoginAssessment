@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import mockRepos from './mockData.js/mockRepos';
 import axios from 'axios';
-
+import mockUser from './mockData.js/mockUser';
+import mockFollowers from './mockData.js/mockFollowers';
 const rootUrl = 'https://api.github.com';
 
 const GithubContext = React.createContext();
@@ -11,10 +12,11 @@ const GithubProvider = ({children}) =>{
 
 
   
-    // const [githubUser,setGithubUser] = useState(mockUser);
+    const [githubUser,setGithubUser] = useState(mockUser);
     const [repos,setRepos] = useState(mockRepos);
     const [request,setRequest] = useState(0);
     const [loading,setLoading] = useState(false);
+    const [followers,setFollowers] = useState(mockFollowers);
     const [error,setError] = useState({show:false,msg:''});
 
 
@@ -36,10 +38,16 @@ const GithubProvider = ({children}) =>{
         setLoading(true);
         const response = await axios(`${rootUrl}/users/${user}`).catch((error)=>console.log(error));
        if(response){
-                 const {login} = response.data;
+        setGithubUser(response.data);
+        const {login,followers_url} = response.data;
             //repos
             await axios(`${rootUrl}/users/${login}/repos?per_page=100`)
             .then((response)=>setRepos(response.data))
+
+              //followers
+
+              await axios(`${followers_url}?per_page=100`)
+              .then((response) => setFollowers(response.data))
 
        
         } else {
@@ -63,7 +71,7 @@ const GithubProvider = ({children}) =>{
 
 
 
-    return <GithubContext.Provider value={{repos,request,error,searchGithubUser,loading}}>{children}</GithubContext.Provider>
+    return <GithubContext.Provider value={{repos,request,error,searchGithubUser,loading,githubUser,followers}}>{children}</GithubContext.Provider>
 }
 
 export {GithubContext,GithubProvider};

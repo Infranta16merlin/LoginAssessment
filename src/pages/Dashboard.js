@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import Navbar from '../components/NavBar';
 import { GithubContext } from '../context/context';
+import Repos from './Repos';
+import User from './User';
 
 const Dashboard = () => {
 
@@ -16,6 +18,8 @@ const Dashboard = () => {
     return (
       <main>
         <Navbar/>
+        <Repos/>
+        <User/>
       </main>
     )
 
