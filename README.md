@@ -73,7 +73,12 @@
 ### Followers
   
    --- Follower component shows the follwers following the account
-   --- This data is taken from dummy user from githb
+   --- This data is taken from dummy user from github
+   #### Followers details implemented as Repo details
+
+   --- Here I have taken the folloer based on the Id and it goes to the acutal repo
+   --- Based on the clicked data it goes to the new repo 
+
 
 ### Repos
    
@@ -81,7 +86,7 @@
    --- This provides extra data about the user
 
 ### Error
-   --- This compont is loaded when the url goes wrong
+   --- This component is loaded when the url goes wrong
    --- This provides 404 error where this shows the error page
 
 
