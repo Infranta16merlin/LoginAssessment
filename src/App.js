@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { Dashboard, Login, PrivateRoute, AuthWrapper, Error, SingleRepos } from './pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
+import Repos from './pages/Repos';
 
 
 function App() {
@@ -44,13 +45,14 @@ function App() {
       <BrowserRouter>
       <Routes>
       
-        <Route path='/repos' element={
+        <Route path='/' element={
           <PrivateRoute>
           < Dashboard/>
           
           </PrivateRoute>
           }/>
-          <Route path='repos/:id' element={<SingleRepos />} />
+          <Route path='/repos' element={<Repos/>}/>
+          <Route path='/repos/:id' element={<SingleRepos />} />
         
        
         <Route path='/login' element={<Login/>}/>
