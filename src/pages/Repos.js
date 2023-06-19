@@ -4,6 +4,7 @@
     import { GoRepo, GoGist } from 'react-icons/go';
     import styled from 'styled-components';
     import { FiUsers, FiUserPlus } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
     
     const Repos = () => {
       
@@ -48,11 +49,22 @@
           {
             items.map((item)=>{
               return(
-               
-                 <Item key={item.id} {...item}></Item>
+               <>
+                <Item key={item.id} {...item}></Item>
+                {
+                  (item.id=== 1 && <Link to={`/repos/${item.id}`} >
+                  Repo Details
+                </Link> )
+                }
+                
+
+               </>
+                
               )
             })
           }
+          
+
     </Wrapper>
         </section>
         
@@ -67,7 +79,7 @@
           <h3>{value}</h3>
           <p>{label}</p>
         </div>
-    
+        
       </article>
     )}
 
